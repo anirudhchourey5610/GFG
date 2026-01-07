@@ -3,19 +3,28 @@ class Solution {
     vector<int> countDistinct(vector<int> &arr, int k) {
         // code here
         unordered_map<int,int> freq;
-        vector<int> finalAns;
+        int count=0;
+        vector<int> ans;
         for(int i=0;i<k;i++){
-            freq[arr[i]]++;
-        }
-        finalAns.push_back(freq.size());
-        for(int i=k;i<arr.size();i++){
-           freq[arr[i-k]]--;
-            if(freq[arr[i-k]]==0){
-                freq.erase(arr[i-k]);
+            if(freq[arr[i]]==0){
+                count++;
             }
             freq[arr[i]]++;
-            finalAns.push_back(freq.size());
         }
-        return finalAns;
+          ans.push_back(count);
+        for(int i=k;i<arr.size();i++){
+            int out=arr[i-k];
+            freq[out]--;
+            if(freq[out]==0){
+                count--;
+            }
+            int in=arr[i];
+            if(freq[in]==0){
+                count++;
+            }
+            freq[in]++;
+            ans.push_back(count);
+        }  
+      return ans;
     }
 };
