@@ -1,14 +1,11 @@
 class Solution {
   public:
-    // Function to remove duplicates from the given array.
     vector<int> removeDuplicates(vector<int> &arr) {
         // code here
         vector<int> ans;
-        
         for(int i=0;i<arr.size();i++){
             if(arr[i]!=arr[i+1]){
                 ans.push_back(arr[i]);
-       
             }
         }
         return ans;
