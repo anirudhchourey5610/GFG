@@ -4,14 +4,16 @@ class Solution {
     vector<int> frequencyCount(vector<int>& arr) {
         // code here
         int n=arr.size();
-        unordered_map<int,int> result;
+        vector<int> ans(n,0);
+        unordered_map<int,int> freq;
         for(int i=0;i<arr.size();i++){
-            result[arr[i]]++;
+            freq[arr[i]]++;
         }
-        vector<int> freq(n,0);
-        for(int i=1;i<=n;i++){
-            freq[i-1]=result[i];
+        for(int i=1;i<=arr.size();i++){
+            if(freq.find(i)!=freq.end()){
+                ans[i-1]=freq[i];
+            }
         }
-        return freq;
+        return ans;
     }
 };
