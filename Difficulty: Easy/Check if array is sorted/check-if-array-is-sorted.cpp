@@ -2,13 +2,10 @@ class Solution {
   public:
     bool isSorted(vector<int>& arr) {
         // code here
-        int n=arr.size();
         int i=0;
-        while(i<n-1){
-            int j=i+1;
+        for(int j=i+1;j<arr.size();j++){
             if(arr[i]>arr[j]){
                 return false;
-                break;
             }
             i++;
         }
