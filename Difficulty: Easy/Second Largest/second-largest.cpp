@@ -10,8 +10,8 @@ class Solution {
         }
         int max1=-1;
         for(int i=0;i<arr.size();i++){
-            if(max>max1 && max1<arr[i] && max!=arr[i]){
-                    max1=arr[i];
+            if(max1<arr[i] && max!=max1 && max>arr[i]){
+                max1=arr[i];
             }
         }
         return max1;
