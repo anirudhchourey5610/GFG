@@ -2,12 +2,14 @@ class Solution {
   public:
     vector<int> getMinMax(vector<int> &arr) {
         // code here
-        int n=arr.size();
-        int min=arr[0],max=arr[0];
-        for(int i=0;i<n;i++){
-            if(min>arr[i]) {
+        int min=INT_MAX;
+        int max=INT_MIN;
+        for(int i=0;i<arr.size();i++){
+            if(min>arr[i]){
                 min=arr[i];
             }
+        }
+        for(int i=0;i<arr.size();i++){
             if(max<arr[i]){
                 max=arr[i];
             }
